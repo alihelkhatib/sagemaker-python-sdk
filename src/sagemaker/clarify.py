@@ -247,7 +247,7 @@ class ModelConfig:
                 )
             self.predictor_config["endpoint_name_prefix"] = endpoint_name_prefix
         if accept_type is not None:
-            if accept_type not in ["text/csv", "application/jsonlines"]:
+            if accept_type not in ["text/csv", "application/jsonlines", "application/x-parquet"]:
                 raise ValueError(
                     f"Invalid accept_type {accept_type}."
                     f" Please choose text/csv or application/jsonlines."
@@ -261,6 +261,7 @@ class ModelConfig:
                 "image/jpg",
                 "image/png",
                 "application/x-npy",
+                "application/x-parquet"
             ]:
                 raise ValueError(
                     f"Invalid content_type {content_type}."
